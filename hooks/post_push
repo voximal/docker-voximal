@@ -5,14 +5,17 @@ set -e
 # Parse image name for repo name and major tag version
 tagStart=$(expr index "$IMAGE_NAME" :)
 repoName=${IMAGE_NAME:0:tagStart-1}
-CurrVer=${IMAGE_NAME:tagStart:1}
 
-#Tag also latest with passed build version (CurrVer)
+#Read version from image
+VERSIONS=$(docker run --rm  $IMAGE_NAME cat /var/opt/voxibot/voxibot.info)
+echo "/var/opt/voxibot/voxibot.info:"
+echo $VERSIONS
+VOXIBOT=$(echo $VERSIONS|sed -n 's/^VOXIBOT=\(.*\)/\1/p')
 
 # Tag and push image with passed version
-echo "Tagging and pushing" ${repoName}:${CurrVer}
-docker tag $IMAGE_NAME ${repoName}:${CurrVer}
-docker push ${repoName}:${CurrVer}
+echo "Tagging and pushing" ${repoName}:${VOXIBOT}
+docker tag $IMAGE_NAME ${repoName}:${VOXIBOT}
+docker push ${repoName}:${VOXIBOT}
 
 # add  latest tag (this is not an automatic tag)
 echo "Tagging and pushing" ${repoName}:latest
