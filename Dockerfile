@@ -23,7 +23,7 @@ RUN apt-get update && apt-get upgrade -y
 
 #important -- for .run args
 #-d debug, -u not create uid.txt
-RUN chmod +x /tmp/installer.run &&/bin/bash -c "/tmp/installer.run -- -u "
+RUN /bin/sh /tmp/installer.run -- -u
 
 #Enable uid for next reboot
 RUN touch /var/lib/voximal/uid.txt && chown asterisk: /var/lib/voximal/uid.txt
