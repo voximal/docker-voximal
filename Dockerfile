@@ -7,7 +7,7 @@
 FROM phusion/baseimage:0.9.18
 
 #Voxibot URL
-ARG VOXIBOTURL=http://dl.voximal.net/voxibot/ubuntu14.04/x86-64/latest.run
+ARG VOXIBOTURL=http://dl.voximal.net/nightly/voxibot/ubuntu14.04/x86-64/latest.run
 
 #Set default mark
 ARG MARKVAR=Docker-phusion-0.9.18
