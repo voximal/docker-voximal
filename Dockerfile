@@ -3,14 +3,14 @@
 # See https://github.com/phusion/baseimage-docker/blob/master/Changelog.md for
 # a list of version numbers.
 
-#Version ubuntu 14.04
-FROM phusion/baseimage:0.9.18
+#Version ubuntu 18.04
+FROM phusion/baseimage:0.11
 
 #Voxibot URL
-ARG VOXIBOTURL=http://dl.voximal.net/nightly/voxibot/ubuntu14.04/x86-64/latest.run
+ARG VOXIBOTURL=http://dl.voximal.net/nightly/voxibot/ubuntu18.04/x86-64/latest.run
 
 #Set default mark
-ARG MARKVAR=Docker-phusion-0.9.18
+ARG MARKVAR=Docker-phusion-0.11
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
