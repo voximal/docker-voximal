@@ -7,7 +7,7 @@
 FROM phusion/baseimage:0.11
 
 #Voxibot URL
-ARG VOXIBOTURL=http://dl.voximal.net/nightly/voxibot/ubuntu18.04/x86-64/latest.run
+ARG VOXISTATURL=http://dl.voximal.net/nightly/voximal-stack/ubuntu18.04/x86-64/latest.run
 
 #Set default mark
 ARG MARKVAR=Docker-phusion-0.11
@@ -15,8 +15,8 @@ ARG MARKVAR=Docker-phusion-0.11
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-#Get latest voxibot
-RUN curl -s -o /tmp/installer.run ${VOXIBOTURL}
+#Get latest Stack
+RUN curl -s -o /tmp/installer.run ${VOXISTATURL}
 
 #Upgrade 
 RUN apt-get update && apt-get upgrade -y
