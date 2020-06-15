@@ -10,13 +10,13 @@ Voximal is compliant with VoiceXML 2.1's W3C standard language. Asterisk offers 
 ## Downloading prebuit latest image
 
 ```
-docker pull voximal/voxibot
+docker pull voximal/stack
 ```
 
 ## Building
 
 ```
-docker build -t voximal/voxibot  github.com/voximal/docker-voxibot
+docker build -t voximal/stack  github.com/voximal/docker-voximal
 ```
 
 ## Running
@@ -25,7 +25,7 @@ You need to open port 80, for freepbx http interface, and UDP port 4569, if
 you would like to call easily. 
 
 ```
-docker run -i -t -p 80:80 -p 4569:4569/udp  voximal/voxibot  my_init -- bash -l
+docker run -i -t -p 80:80 -p 4569:4569/udp  voximal/stack  my_init -- bash -l
 ```
 
 ## Post-installing
