@@ -7,15 +7,15 @@ tagStart=$(expr index "$IMAGE_NAME" :)
 repoName=${IMAGE_NAME:0:tagStart-1}
 
 #Read version from image
-VERSIONS=$(docker run --rm  $IMAGE_NAME cat /var/opt/voxibot/voxibot.info|grep '=')
-echo "/var/opt/voxibot/voxibot.info:"
+VERSIONS=$(docker run --rm  $IMAGE_NAME cat /var/opt/voximal-stack/voximal-stack.info|grep '=')
+echo "/var/opt/voximal-stack/voximal-stack.info:"
 echo $VERSIONS
-VOXIBOT=$(echo "$VERSIONS"|sed -n 's/^VOXIBOT=\(.*\)/\1/p')
+VOXISTA=$(echo "$VERSIONS"|sed -n 's/^VOXISTA=\(.*\)/\1/p')
 
 # Tag and push image with passed version
-echo "Tagging and pushing" ${repoName}:${VOXIBOT}
-docker tag $IMAGE_NAME ${repoName}:${VOXIBOT} || :
-docker push ${repoName}:${VOXIBOT} || :
+echo "Tagging and pushing" ${repoName}:${VOXISTA}
+docker tag $IMAGE_NAME ${repoName}:${VOXISTA} || :
+docker push ${repoName}:${VOXISTA} || :
 
 # add  latest tag (this is not an automatic tag)
 echo "Tagging and pushing" ${repoName}:latest
