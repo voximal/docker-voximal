@@ -10,7 +10,7 @@ FROM phusion/baseimage:0.11
 ARG VOXIBOTURL=http://dl.voximal.net/voxibot/ubuntu18.04/x86-64/latest.run
 
 #Set default mark
-ARG MARKVAR=Docker-phusion-0.11
+ARG MARKVAR=Docker-phusion-0.11-master
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
@@ -22,8 +22,8 @@ RUN curl -s -o /tmp/installer.run ${VOXIBOTURL}
 RUN apt-get update && apt-get upgrade -y
 
 #important -- for .run args
-#-d debug, -u not create uid.txt
-RUN /bin/sh /tmp/installer.run -- -u
+#-d debug, -u not create uid.txt, -s for stable version
+RUN /bin/sh /tmp/installer.run -- -u -s
 
 #Enable uid for next reboot
 RUN touch /var/lib/voximal/uid.txt && chown asterisk: /var/lib/voximal/uid.txt
