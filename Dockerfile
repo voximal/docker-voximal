@@ -3,14 +3,14 @@
 # See https://github.com/phusion/baseimage-docker/blob/master/Changelog.md for
 # a list of version numbers.
 
-#Version ubuntu 18.04
-FROM phusion/baseimage:0.11
+#Version ubuntu 20.04
+FROM phusion/baseimage:focal-1.2.0
 
 #Voxibot URL
-ARG VOXISTATURL=http://dl.voximal.net/nightly/voximal-stack/ubuntu18.04/x86-64/latest.run
+ARG VOXISTATURL=http://dl.voximal.net/nightly/voximal-stack/ubuntu20.04/x86-64/latest.run
 
 #Set default mark
-ARG MARKVAR=Docker-phusion-0.11
+ARG MARKVAR=Docker-phusion-focal-1.2.0
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
@@ -23,7 +23,7 @@ RUN apt-get update && apt-get upgrade -y
 
 #important -- for .run args
 #-d debug, -u not create uid.txt
-RUN /bin/sh /tmp/installer.run -- -u -r
+RUN /bin/sh /tmp/installer.run -- -u 
 
 #Enable uid for next reboot
 RUN touch /var/lib/voximal/uid.txt && chown asterisk: /var/lib/voximal/uid.txt
