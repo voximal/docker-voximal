@@ -4,13 +4,13 @@
 # a list of version numbers.
 
 #Version ubuntu 20.04
-FROM phusion/baseimage:focal-1.2.0
+FROM phusion/baseimage:noble-1.0.2
 
 #Voxibot URL
-ARG VOXISTATURL=http://dl.voximal.net/nightly/voximal-stack/ubuntu20.04/x86-64/latest.run
+ARG VOXISTATURL=http://dl.voximal.net/nightly/voximal-stack/ubuntu24.04/x86-64/latest.run
 
 #Set default mark
-ARG MARKVAR=Docker-phusion-focal-1.2.0
+ARG MARKVAR=Docker-phusion-noble-1.0.2
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
